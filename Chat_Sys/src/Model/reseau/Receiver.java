@@ -12,7 +12,8 @@ public class Receiver extends Thread {
     
     public Receiver(Controller_reseau controler) throws SocketException{ 
         _chat = controler;
-        _servSock = new DatagramSocket(_chat.getPort()); 
+        //_servSock = new DatagramSocket(_chat.getPort()); 
+        _servSock = new DatagramSocket(1568); 
     }
 
     private Message recvObjFrom()
