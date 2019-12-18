@@ -9,8 +9,7 @@ public class Main_receiver {
 		User utilisateur = new User("mouloud","127.0.0.1");
 		Controleur_Processor process = new Controleur_Processor (utilisateur);
 		Controller_reseau chat = new Controller_reseau(process, utilisateur);
-		Receiver receive = new Receiver(chat) ;
-		
+		Receiver receive = new Receiver(chat) ;	
 	}
 
 }
