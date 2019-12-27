@@ -64,7 +64,7 @@ public class Login {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.control);
-		frame.setBounds(100, 100, 709, 478);
+		frame.setBounds(100, 100, 709, 448);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Log in" );
@@ -73,7 +73,7 @@ public class Login {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(0, 0, 369, 552);
+		panel.setBounds(0, 0, 369, 418);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -85,23 +85,23 @@ public class Login {
 		JLabel lblNewLabel_3 = new JLabel("Keep up the teamwork");
 		lblNewLabel_3.setForeground(UIManager.getColor("Button.highlight"));
 		lblNewLabel_3.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 19));
-		lblNewLabel_3.setBounds(55, 304, 264, 38);
+		lblNewLabel_3.setBounds(57, 294, 264, 38);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblLinkUsTogether = new JLabel("Link us together");
 		lblLinkUsTogether.setForeground(Color.WHITE);
 		lblLinkUsTogether.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 19));
-		lblLinkUsTogether.setBounds(88, 363, 199, 38);
+		lblLinkUsTogether.setBounds(87, 342, 199, 38);
 		panel.add(lblLinkUsTogether);
 		
 		JLabel lblNewLabel_1 = new JLabel("Welcome on the chat !");
 		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 17));
-		lblNewLabel_1.setBounds(439, 29, 223, 29);
+		lblNewLabel_1.setBounds(439, 45, 223, 29);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setBounds(411, 190, 251, 44);
+		textField.setBounds(411, 178, 251, 44);
 		
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
@@ -125,13 +125,13 @@ public class Login {
 			}
 		});
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 14));
-		btnNewButton.setBounds(485, 310, 108, 29);
+		btnNewButton.setBounds(476, 271, 123, 44);
 		frame.getContentPane().add(btnNewButton);
 		frame.getRootPane().setDefaultButton(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("Username");
 		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(496, 158, 81, 22);
+		lblNewLabel_2.setBounds(495, 136, 81, 22);
 		frame.getContentPane().add(lblNewLabel_2);
 	}
 }
