@@ -84,14 +84,14 @@ public class Login {
 		
 		JLabel lblNewLabel_3 = new JLabel("Keep up the teamwork");
 		lblNewLabel_3.setForeground(UIManager.getColor("Button.highlight"));
-		lblNewLabel_3.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 19));
-		lblNewLabel_3.setBounds(57, 294, 264, 38);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblNewLabel_3.setBounds(75, 299, 264, 38);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblLinkUsTogether = new JLabel("Link us together");
 		lblLinkUsTogether.setForeground(Color.WHITE);
-		lblLinkUsTogether.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 19));
-		lblLinkUsTogether.setBounds(87, 342, 199, 38);
+		lblLinkUsTogether.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblLinkUsTogether.setBounds(102, 341, 199, 38);
 		panel.add(lblLinkUsTogether);
 		
 		JLabel lblNewLabel_1 = new JLabel("Welcome on the chat !");
@@ -107,12 +107,15 @@ public class Login {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Log in ");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				username=textField.getText();
 			    if (username.equals("boris")) {
 			    	frame.dispose();
 				    Chat window=new Chat();
+				  
 			    }
 			    else
 			    {
@@ -124,14 +127,14 @@ public class Login {
 		        }    
 			}
 		});
-		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 14));
+		btnNewButton.setFont(new Font("Verdana", Font.BOLD, 14));
 		btnNewButton.setBounds(476, 271, 123, 44);
 		frame.getContentPane().add(btnNewButton);
 		frame.getRootPane().setDefaultButton(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("Username");
-		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(495, 136, 81, 22);
+		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(495, 136, 104, 22);
 		frame.getContentPane().add(lblNewLabel_2);
 	}
 }
