@@ -1,58 +1,137 @@
 package View;
+import java.awt.EventQueue;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-  
-public class Login extends JFrame implements ActionListener {
-	JButton Connect;
-    JPanel panel;
-    JLabel label;
-    public String username;
-    final JTextField  text;
-    Login() {
-	    label = new JLabel();
-	    label.setText("Username:");
-	    text = new JTextField(15);
-	 
-	    Connect=new JButton("Connect");
-	    Connect.addActionListener(this);
-	   
-	    panel=new JPanel(new GridLayout(2,1));
-	    panel.add(label);
-	    panel.add(text);
-	    panel.add(Connect);
-	    add(panel,BorderLayout.CENTER);
-	    getRootPane().setDefaultButton(Connect);
-	    setTitle("LOGIN");
-    }
-    
-    public void actionPerformed(ActionEvent ae){
-	    username=text.getText();
-	    if (username.equals("boris")) {
-	    	this.dispose();
-		    Chat chat=new Chat(username);
-	    }
-	    else
-	    {
-		    System.out.println("Erreur");
-		    JOptionPane.showMessageDialog(this,"Username already used. \n "
-		    		+ "Please enter another username.",
-		    "Error",JOptionPane.ERROR_MESSAGE);
-        }    
-    }
-    
-	public static void main(String arg[])
-	{
-		  try {
-			  Login frame=new Login();
-			  frame.setSize(300,150);
-			  frame.setLocationRelativeTo(null);
-			  frame.setVisible(true);
-		  }
-		   
-		  catch(Exception e){
-			  JOptionPane.showMessageDialog(null, e.getMessage());
-		  }
-     }
+import javax.swing.JFrame;
+import java.awt.GridBagLayout;
+import javax.swing.JTextField;
+
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
+
+
+
+import javax.swing.ImageIcon;
+
+public class Login {
+
+	private JFrame frame;
+	public String username;
+	JButton login;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login window = new Login();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Login() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.control);
+		frame.setBounds(100, 100, 709, 478);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.setTitle("Log in" );
+		frame.setResizable(false);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setBounds(0, 0, 369, 552);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(-51, -25, 544, 328);
+		panel.add(lblNewLabel);
+		lblNewLabel.setIcon(new ImageIcon("D:\\T\u00E9l\u00E9chargements\\Webp.net-resizeimage.jpg"));
+		
+		JLabel lblNewLabel_3 = new JLabel("Keep up the teamwork");
+		lblNewLabel_3.setForeground(UIManager.getColor("Button.highlight"));
+		lblNewLabel_3.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 19));
+		lblNewLabel_3.setBounds(55, 304, 264, 38);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblLinkUsTogether = new JLabel("Link us together");
+		lblLinkUsTogether.setForeground(Color.WHITE);
+		lblLinkUsTogether.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 19));
+		lblLinkUsTogether.setBounds(88, 363, 199, 38);
+		panel.add(lblLinkUsTogether);
+		
+		JLabel lblNewLabel_1 = new JLabel("Welcome on the chat !");
+		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 17));
+		lblNewLabel_1.setBounds(439, 29, 223, 29);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setBounds(411, 190, 251, 44);
+		
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Log in ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				username=textField.getText();
+			    if (username.equals("boris")) {
+			    	frame.dispose();
+				    Chat window=new Chat();
+			    }
+			    else
+			    {
+				    System.out.println("Erreur");
+				    JOptionPane.showMessageDialog(frame,"Username already used. \n "
+				    		+ "Please enter another username.",
+				    "Error",JOptionPane.ERROR_MESSAGE);
+				    textField.setText("");
+		        }    
+			}
+		});
+		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 14));
+		btnNewButton.setBounds(485, 310, 108, 29);
+		frame.getContentPane().add(btnNewButton);
+		frame.getRootPane().setDefaultButton(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("Username");
+		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(496, 158, 81, 22);
+		frame.getContentPane().add(lblNewLabel_2);
+	}
 }
