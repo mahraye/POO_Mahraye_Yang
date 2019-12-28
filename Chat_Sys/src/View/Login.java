@@ -27,6 +27,8 @@ import javax.swing.UIManager;
 
 
 import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login {
 
@@ -84,14 +86,14 @@ public class Login {
 		
 		JLabel lblNewLabel_3 = new JLabel("Keep up the teamwork");
 		lblNewLabel_3.setForeground(UIManager.getColor("Button.highlight"));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 19));
-		lblNewLabel_3.setBounds(75, 299, 264, 38);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_3.setBounds(85, 299, 264, 38);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblLinkUsTogether = new JLabel("Link us together");
 		lblLinkUsTogether.setForeground(Color.WHITE);
-		lblLinkUsTogether.setFont(new Font("Tahoma", Font.BOLD, 19));
-		lblLinkUsTogether.setBounds(102, 341, 199, 38);
+		lblLinkUsTogether.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblLinkUsTogether.setBounds(107, 347, 199, 38);
 		panel.add(lblLinkUsTogether);
 		
 		JLabel lblNewLabel_1 = new JLabel("Welcome on the chat !");
@@ -100,6 +102,17 @@ public class Login {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (e.getKeyChar()==' ') {
+					e.consume();
+				}
+				if (textField.getText().length() >= 15 ) {// limit textfield to 15 characters
+		            e.consume(); 
+				}
+			}
+		});
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setBounds(411, 178, 251, 44);
 		
@@ -112,10 +125,12 @@ public class Login {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				username=textField.getText();
-			    if (username.equals("boris")) {
+				if (username.isEmpty()) {
+				    textField.setText("");
+				}
+				else if (username.equals("boris")) {
 			    	frame.dispose();
-				    Chat window=new Chat();
-				  
+				    Chat window=new Chat(username);
 			    }
 			    else
 			    {
