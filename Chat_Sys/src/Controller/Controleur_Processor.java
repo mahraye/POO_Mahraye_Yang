@@ -24,12 +24,18 @@ public class Controleur_Processor {
     }
 
     
+    public Controller_reseau get_c_rzo () {
+    	return this.c_rzo;
+    }
+    
     public void processConnected(Message m) {
     	user.checkUserInUserList(m.getSender());
     	c_rzo.sendConnected(m.getSender().getNom());
     	
     	
     }
+    
+    
     
     public void processDisconnected(Message m) {
     	c_rzo.sendDisconnected(m.getSender().getNom());
@@ -38,7 +44,9 @@ public class Controleur_Processor {
     }
     
     public void processMsgNormal(MsgNormal m) {
-    // afficher le message dans l'interface
+    // envoyer et afficher le message dans l'interface
+    	System.out.println("on proccess le msg");
+    	System.out.println(m.getMessage());
     }
     
     public void processNameChanged(Message m) {

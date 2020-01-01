@@ -1,5 +1,4 @@
 package test;
-import Model.reseau.Receiver;
 import Controller.Controller_reseau;
 
 import java.io.IOException;
@@ -15,8 +14,7 @@ public class Main_receiver {
 		User utilisateur = new User("mouloud","127.0.0.1");
 		
 		Controleur_Processor process = new Controleur_Processor (utilisateur);
-		Controller_reseau chat = new Controller_reseau(process, utilisateur);
-		Receiver receive = new Receiver(chat) ;
+		process.get_c_rzo().sendMsgNormal("test1 bitch", 1, "localhost");
 		}
 		catch (IOException e)
         {

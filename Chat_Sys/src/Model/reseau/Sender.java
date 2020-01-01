@@ -6,10 +6,8 @@ import Model.messages.Message;
 
 public class Sender {
 	private DatagramSocket socket;
-    private Controller_reseau _chat;
     
     public Sender(Controller_reseau controler) throws SocketException{
-        _chat = controler;
         socket = new DatagramSocket();
     }
     

@@ -12,8 +12,8 @@ public class Receiver extends Thread {
     
     public Receiver(Controller_reseau controler) throws SocketException{ 
         _chat = controler;
-        //_servSock = new DatagramSocket(_chat.getPort()); 
-        _servSock = new DatagramSocket(1568); 
+        _servSock = new DatagramSocket(23464); 
+
     }
 
     private Message recvObjFrom()
@@ -22,7 +22,9 @@ public class Receiver extends Thread {
           byte[] recvBuf = new byte[5000];
           DatagramPacket packet = new DatagramPacket(recvBuf,recvBuf.length);
           _servSock.receive(packet);
+          System.out.println("message reçu");
           _remoteAddr = packet.getAddress();
+          System.out.println(_remoteAddr);
          // int byteCount = packet.getLength();
           ByteArrayInputStream byteStream = new ByteArrayInputStream(recvBuf);
           ObjectInputStream is = new ObjectInputStream(new BufferedInputStream(byteStream));
@@ -39,12 +41,16 @@ public class Receiver extends Thread {
         { e.printStackTrace(); }   
         return null;
     }
-    
+    public void close() {
+    	_servSock.close();
+    }
     @Override
         public void run() {
             while(true){ 
                 try {
+                	
                     _chat.messageHandle( recvObjFrom(), _remoteAddr.getHostAddress());
+                    System.out.println("message handled");
                 } catch (IOException ex) {
                 }
             }
